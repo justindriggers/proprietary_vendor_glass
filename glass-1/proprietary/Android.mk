@@ -76,21 +76,9 @@ include $(CLEAR_VARS)
 
 LOCAL_MODULE_TAGS := optional
 LOCAL_MODULE_CLASS := SHARED_LIBRARIES
-LOCAL_MODULE := libbltsville_ticpu_license
-LOCAL_MODULE_SUFFIX := .txt
-LOCAL_SRC_FILES := vendor/lib/libbltsville_ticpu_license.txt
-LOCAL_MODULE_PATH:= $(TARGET_OUT_VENDOR)/lib
-
-include $(BUILD_PREBUILT)
-
-include $(CLEAR_VARS)
-
-LOCAL_MODULE_TAGS := optional
-LOCAL_MODULE_CLASS := SHARED_LIBRARIES
 LOCAL_MODULE := libbltsville_ticpu
 LOCAL_MODULE_SUFFIX := .2.1.0.0.so
 LOCAL_SRC_FILES := vendor/lib/libbltsville_ticpu.2.1.0.0.so
-LOCAL_SHARED_LIBRARIES := libbltsville_ticpu_license
 LOCAL_MODULE_PATH:= $(TARGET_OUT_VENDOR)/lib
 
 include $(BUILD_PREBUILT)
@@ -114,6 +102,16 @@ $(SYMLINKS1): $(LOCAL_INSTALLED_MODULE) $(LOCAL_PATH)/Android.mk
 	$(hide) ln -fs $(LINK_BINARY) $@
 
 ALL_DEFAULT_INSTALLED_MODULES += $(SYMLINKS1)
+
+LICENSE := $(TARGET_OUT_VENDOR)/lib/libbltsville_ticpu_license.txt
+$(LICENSE): TICPU_LICENSE := $(LOCAL_PATH)/vendor/lib/libbltsville_ticpu_license.txt
+$(LICENSE): $(LOCAL_INSTALLED_MODULE) $(LOCAL_PATH)/Android.mk
+	@echo "Copy: $(TICPU_LICENSE) -> $@"
+	@mkdir -p $(dir $@)
+	@rm -rf $@
+	$(hide) cp $(TICPU_LICENSE) $@
+
+ALL_DEFAULT_INSTALLED_MODULES += $(LICENSE)
 
 include $(CLEAR_VARS)
 
