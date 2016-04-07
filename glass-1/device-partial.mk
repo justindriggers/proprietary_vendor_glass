@@ -62,4 +62,5 @@ PRODUCT_COPY_FILES := \
     vendor/glass/glass-1/proprietary/vendor/lib/egl/libGLESv1_CM_POWERVR_SGX544_112.so:system/vendor/lib/egl/libGLESv1_CM_POWERVR_SGX544_112.so \
     vendor/glass/glass-1/proprietary/vendor/lib/egl/libGLESv2_POWERVR_SGX540_120.so:system/vendor/lib/egl/libGLESv2_POWERVR_SGX540_120.so \
     vendor/glass/glass-1/proprietary/vendor/lib/egl/libGLESv2_POWERVR_SGX544_112.so:system/vendor/lib/egl/libGLESv2_POWERVR_SGX544_112.so \
-    vendor/glass/glass-1/proprietary/xbin/bootconfig:system/xbin/bootconfig
+    vendor/glass/glass-1/proprietary/xbin/bootconfig:system/xbin/bootconfig \
+    vendor/glass/glass-1/proprietary/xbin/hex2bin:system/xbin/hex2bin
