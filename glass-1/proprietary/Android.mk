@@ -76,11 +76,21 @@ include $(CLEAR_VARS)
 
 LOCAL_MODULE_TAGS := optional
 LOCAL_MODULE_CLASS := SHARED_LIBRARIES
+LOCAL_MODULE := libbltsville_ticpu_license
+LOCAL_MODULE_SUFFIX := .txt
+LOCAL_SRC_FILES := vendor/lib/libbltsville_ticpu_license.txt
+LOCAL_MODULE_PATH:= $(TARGET_OUT_VENDOR)/lib
+
+include $(BUILD_PREBUILT)
+
+include $(CLEAR_VARS)
+
+LOCAL_MODULE_TAGS := optional
+LOCAL_MODULE_CLASS := SHARED_LIBRARIES
 LOCAL_MODULE := libbltsville_ticpu
 LOCAL_MODULE_SUFFIX := .2.1.0.0.so
-LOCAL_SRC_FILES := \
-    vendor/lib/libbltsville_ticpu.2.1.0.0.so \
-    vendor/lib/libbltsville_ticpu_license.txt
+LOCAL_SRC_FILES := vendor/lib/libbltsville_ticpu.2.1.0.0.so
+LOCAL_SHARED_LIBRARIES := libbltsville_ticpu_license
 LOCAL_MODULE_PATH:= $(TARGET_OUT_VENDOR)/lib
 
 include $(BUILD_PREBUILT)
